@@ -37,21 +37,22 @@ To have a full overview, donwload the video [video_demo.mp4](https://drive.googl
 #### Create The Deep Fake
 This is the first feature and it allows to create a deepfake based on a video live recorded:
 
-https://github.com/Matteozara/Talking_statues/assets/74371691/43e48848-f558-4f64-91f9-5f979c9dc01d
+https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/34c6200b-eddf-4e0d-8f12-9be720bcdc40
 
 
 #### Know Your Statue
 
 This feature allows people to know the statue recorded, because it is classified and it shows its history:
 
-https://github.com/Matteozara/Talking_statues/assets/74371691/1bfc14d3-2d9b-4b4d-9943-52249bb152db
+https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/737536a4-728c-4f37-9dc4-eba1372a75a8
 
 
 #### Add Your Audio
 
 This is an amusement functionality that allows to record an audio and create a deep fake based on the audio just recorded;
 
-https://github.com/Matteozara/Talking_statues/assets/74371691/e7beab34-221a-457c-b1dc-151cf09dc198
+https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/b779d4db-b512-4613-bab0-93bc02d51281
+
 
 
 <br>
