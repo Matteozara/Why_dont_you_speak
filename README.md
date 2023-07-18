@@ -122,6 +122,12 @@ The results is shown directly in the Andoird application (where there is also th
 Here there is an example of deep fake generated, if you want to see more look inside the <i>"Deep fake Results" </i> folder.
 
 
+
+
+
+
+
+
   
 <br>
 <br>
