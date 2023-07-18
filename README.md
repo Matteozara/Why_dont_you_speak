@@ -121,12 +121,9 @@ Run the app on your Android smartphone and try it.
 The results is shown directly in the Andoird application (where there is also the possibility to save it in the gallery), but is also saved inside the <i>server_application/final_results</i> on server side.
 Here there is an example of deep fake generated, if you want to see more look inside the <i>"Deep fake Results" </i> folder.
 
+https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/f24b4a87-366f-4a1b-a444-ddda50077f74
 
-
-
-
-
-
+https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/65aefe89-3196-44b5-8c9b-cd8640f80f91
 
   
 <br>
