@@ -121,9 +121,15 @@ Run the app on your Android smartphone and try it.
 The results is shown directly in the Andoird application (where there is also the possibility to save it in the gallery), but is also saved inside the <i>server_application/final_results</i> on server side.
 Here there is an example of deep fake generated, if you want to see more look inside the <i>"Deep fake Results" </i> folder.
 
-https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/93413af0-b4f9-41bc-9f66-bc6d4ba9a558
+<video controls width="400">
+  <source src="server_application/final_results/Demosthenes_res.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/b78e2814-4280-4279-8f7b-687ad8069923
+<video controls width="400">
+  <source src="videos/video2.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 
   
