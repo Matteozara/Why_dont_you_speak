@@ -1,10 +1,14 @@
 # Video
 This repo contains the video demo for the paper "Why don’t you speak?: a smartphone application to engage
 museum visitors through Deepfake of statues".
-
-The paper presents a new application to change the way of experience the museums. 
-To understand better the features, here there are three video, each one explaining a different feature of the app.
-To have a full overview, donwload the video [video_demo.mp4](https://drive.google.com/file/d/1eKe5PnxXyIel1fs0ag8DvSHfpzSxyI3T/view?usp=sharing).
+<br>
+The paper presents a new application to change the way of experience the museums.
+<br>
+To understand better the features, here (<a href="#project-videos">Project Videos</a>) there are three video, each one explaining a different feature of the app.
+<br>
+To have a full overview, you donwload the video [video_demo.mp4](https://drive.google.com/file/d/1eKe5PnxXyIel1fs0ag8DvSHfpzSxyI3T/view?usp=sharing).
+<br>
+If you just want to see the final results you can go to <a href="#Results">Results</a>, or, to have more example search inside the <i>"Deep fake Results" </i> folder.
 <br>
 <br>
 <!-- TABLE OF CONTENTS -->
@@ -25,6 +29,7 @@ To have a full overview, donwload the video [video_demo.mp4](https://drive.googl
         <li><a href="#Android-Application">Android application</a></li>
       </ul>
     </li>
+    <li><a href="#Results">Results</a></li>
     <li><a href="#License">License</a></li>
     <li><a href="#Contacts">Contacts</a></li>
     <li><a href="#Acknowledgments">Acknowledgments</a></li>
@@ -102,13 +107,13 @@ app.run(host="<i>ip_server</i>", port=<i>port_number</i>, threaded=True)
 <br>
 
 ### Android Application
-Open the <I>WDyS</i> folder on Andoird Studio. 
+Open the <I>WDyS</i> folder with Andoird Studio. 
 <br>
 <br>
-Change the <i>server</i> String variable in <i>ExplanationActivity.java, MainActivity.java, AudioActivity.java</i> and <i>VideoAudioActivity.java</i>
+Change the <i>server</i> String variable in <i>ExplanationActivity.java, MainActivity.java, AudioActivity.java</i> and <i>VideoAudioActivity.java</i>, with your server address, the one you wrote inside <i>server_flaskGPU.py</i> (you have to be sure that both Server and Andorid application run on the same network).
 <br>
 <br>
-Run the app on your Android smartphone and try it
+Run the app on your Android smartphone and try it.
   
 <br>
 <br>
