@@ -1,0 +1,1 @@
+Inside this folder have to be uploaded the weights of the EfficientNet models from the link: https://drive.google.com/drive/folders/1EwbSPdOrXYlIqTS0SufuodawTS7eR-1P?usp=sharing

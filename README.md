@@ -3,12 +3,11 @@ This repo contains the video demo for the paper "Why don’t you speak?: a smart
 museum visitors through Deepfake of statues".
 <br>
 The paper presents a new application to change the way of experience the museums.
-<br>
-To understand better the features, here (<a href="#project-videos">Project Videos</a>) there are three video, each one explaining a different feature of the app.
+To understand better the functionalities, here (<a href="#project-videos">Project Videos</a>) there are three video, each one explaining a different feature of the app.
 <br>
 To have a full overview, you donwload the video [video_demo.mp4](https://drive.google.com/file/d/1eKe5PnxXyIel1fs0ag8DvSHfpzSxyI3T/view?usp=sharing).
 <br>
-If you just want to see the final results you can go to <a href="#Results">Results</a>, or, to have more example search inside the <i>"Deep fake Results" </i> folder.
+If you just want to see the final deep fakes you can go to <a href="#Results">Results</a>, or, to have more examples, search inside the <i>"Deep fake Results" </i> folder.
 <br>
 <br>
 <!-- TABLE OF CONTENTS -->
@@ -114,6 +113,13 @@ Change the <i>server</i> String variable in <i>ExplanationActivity.java, MainAct
 <br>
 <br>
 Run the app on your Android smartphone and try it.
+
+<br>
+<br>
+
+## Results
+The results is shown directly in the Andoird application (where there is also the possibility to save it in the gallery), but is also saved inside the <i>server_application/final_results</i> on server side.
+Here there is an example of deep fake generated, if you want to see more look inside the <i>"Deep fake Results" </i> folder.
   
 <br>
 <br>

@@ -1,0 +1,1 @@
+Inside this folder will be uploaded the weights of the GAN model from the link: https://drive.google.com/drive/folders/1EwbSPdOrXYlIqTS0SufuodawTS7eR-1P?usp=sharing
