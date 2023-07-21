@@ -1,11 +1,11 @@
-# Video
+# Why don’t you speak? (WDyS)
 This repo contains the video demo for the paper "Why don’t you speak?: a smartphone application to engage
 museum visitors through Deepfake of statues".
 <br>
 The paper presents a new application to change the way of experience the museums.
 To understand better the functionalities, here (<a href="#project-videos">Project Videos</a>) there are three video, each one explaining a different feature of the app.
 <br>
-To have a full overview, you donwload the video [video_demo.mp4](https://drive.google.com/file/d/1eKe5PnxXyIel1fs0ag8DvSHfpzSxyI3T/view?usp=sharing).
+To have a full overview, you can donwload the video [video_demo.mp4](https://drive.google.com/file/d/1eKe5PnxXyIel1fs0ag8DvSHfpzSxyI3T/view?usp=sharing).
 <br>
 If you just want to see the final deep fakes you can go to <a href="#results">Results</a>, or, to have more examples, search inside the <i>"Deep fake Results" </i> folder.
 <br>
@@ -39,14 +39,14 @@ If you just want to see the final deep fakes you can go to <a href="#results">Re
 
 ## Project Videos
 #### Create The Deep Fake
-This is the first feature and it allows to create a deepfake based on a video live recorded:
+This is the first feature and it allows to create a deep fake based on a video live recorded:
 
 https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/34c6200b-eddf-4e0d-8f12-9be720bcdc40
 
 
 #### Know Your Statue
 
-This feature allows people to know the statue recorded, because it is classified and it shows its history:
+This feature allows people to know the statue recorded, because it shows its history:
 
 https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/737536a4-728c-4f37-9dc4-eba1372a75a8
 
@@ -118,8 +118,8 @@ Run the app on your Android smartphone and try it.
 <br>
 
 ## Results
-The results is shown directly in the Andoird application (where there is also the possibility to save it in the gallery), but is also saved inside the <i>server_application/final_results</i> on server side.
-Here there is an example of deep fake generated, if you want to see more look inside the <i>"Deep fake Results" </i> folder.
+The result is shown directly in the Andoird application (where there is also the possibility to save it in the gallery), but is also saved inside the <i>server_application/final_results</i> on server side.
+Here there are two examples of deep fake generated, if you want to see more look inside the <i>"Deep fake Results" </i> folder.
 
 https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/f24b4a87-366f-4a1b-a444-ddda50077f74
 
@@ -130,7 +130,7 @@ https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/65aefe89-3196-4
 <br>
 
 ## License
-This repository can only be used for personal/research/non-commercial purposes. However, for commercial requests, please contact us directly <a href="#Contacts">contacts</a>
+This repository can only be used for personal/research/non-commercial purposes. However, for commercial requests, please contact us directly <a href="#contacts">contacts</a>
   
 <br>
 <br>
