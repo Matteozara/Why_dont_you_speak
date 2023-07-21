@@ -24,14 +24,14 @@ If you just want to see the final deep fakes you can go to <a href="#Results">Re
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#Server-Application">Server Application</a></li>
-        <li><a href="#Android-Application">Android application</a></li>
+        <li><a href="#server-application">Server Application</a></li>
+        <li><a href="#android-application">Android application</a></li>
       </ul>
     </li>
-    <li><a href="#Results">Results</a></li>
-    <li><a href="#License">License</a></li>
-    <li><a href="#Contacts">Contacts</a></li>
-    <li><a href="#Acknowledgments">Acknowledgments</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contacts">Contacts</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
   
 <br>
