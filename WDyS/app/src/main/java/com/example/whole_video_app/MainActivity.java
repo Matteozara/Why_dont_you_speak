@@ -46,6 +46,7 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -104,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
     private Runnable r_end;
     public String old_filename;
 
+    public ToggleButton check_taggle_btn;
+
+    public int tipo;
+
     public boolean flag = false;
 
     public final String server = "http://172.20.10.5:3535/";
@@ -138,12 +143,14 @@ public class MainActivity extends AppCompatActivity {
         back = findViewById(R.id.back);
         save = findViewById(R.id.save);
 
+        check_taggle_btn = findViewById(R.id.check_toggle_btn);
+
         keeprec.setVisibility(View.INVISIBLE);
         err.setVisibility(View.INVISIBLE);
 
         title.setText("Make the statues talk");
         text_intro.setText("Just follow the instructions:\n\n" +
-                "1) choose a subject\n\n" +
+                "1) choose a subject and a modality (fast or precise)\n\n" +
                 "2) record a video (with \"start\"). It is important to clearly record the face\n\n" +
                 "3) the deepfake will be reproduced and the statue will talk about its history ");
         text_intro.setVisibility(View.VISIBLE);
@@ -169,6 +176,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+        });
+
+        check_taggle_btn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    check_taggle_btn.setText("PRECISE");
+                    check_taggle_btn.setTextColor(Color.parseColor("#ffffff"));
+                } else {
+                    check_taggle_btn.setText("FAST");
+                    check_taggle_btn.setTextColor(Color.parseColor("#000000"));
+                }
+            }
         });
 
 
@@ -231,6 +251,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 switch_btt.setVisibility(View.INVISIBLE);
+                check_taggle_btn.setVisibility(View.INVISIBLE);
                 start.setVisibility(View.INVISIBLE);
                 back.setVisibility(View.INVISIBLE);
                 mTextureView.setVisibility(View.VISIBLE);
@@ -439,7 +460,7 @@ public class MainActivity extends AppCompatActivity {
         mChronometer.setVisibility(View.VISIBLE);
         mChronometer.start();
 
-        new Handler().postDelayed(r_end,4000); //4
+        new Handler().postDelayed(r_end,13000); //4
         //new Handler().postDelayed(r_show,90000); //40
     }
 
@@ -732,7 +753,11 @@ public class MainActivity extends AppCompatActivity {
                 serverUrl = server + "video_give_people";
             }
 
-
+            if (check_taggle_btn.isChecked()) {
+                tipo = 1;
+            } else {
+                tipo = 0;
+            }
 
 
             //Log.i(TAG, "file passed (original video): " + path);
@@ -766,8 +791,8 @@ public class MainActivity extends AppCompatActivity {
                 // Construct the JSON request body with the Base64 video data
                 JSONObject json_data = new JSONObject();
                 json_data.put("index", 0);
+                json_data.put("type", tipo);
                 json_data.put("video", base64Video);
-
 
 
                 String jsonString = json_data.toString();
@@ -818,6 +843,7 @@ public class MainActivity extends AppCompatActivity {
                             mTextureView.setVisibility(View.INVISIBLE);
                             progressbar.setVisibility(View.INVISIBLE);
                             switch_btt.setVisibility(View.INVISIBLE);
+                            check_taggle_btn.setVisibility(View.INVISIBLE);
                             start.setVisibility(View.INVISIBLE);
                             back.setVisibility(View.INVISIBLE);
 
@@ -944,6 +970,7 @@ public class MainActivity extends AppCompatActivity {
                     mTextureView.setVisibility(View.INVISIBLE);
                     progressbar.setVisibility(View.INVISIBLE);
                     switch_btt.setVisibility(View.INVISIBLE);
+                    check_taggle_btn.setVisibility(View.INVISIBLE);
                     start.setVisibility(View.INVISIBLE);
                     back.setVisibility(View.INVISIBLE);
 

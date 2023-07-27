@@ -48,6 +48,7 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 import android.widget.VideoView;
 
 import androidx.annotation.DrawableRes;
@@ -114,6 +115,10 @@ public class ExplanationActivity extends AppCompatActivity {
 
     public boolean flag = false;
 
+    public ToggleButton check_taggle_btn;
+
+    public int tipo;
+
     public final String server = "http://172.20.10.5:3535/";
 
     public Queue queue_response = new LinkedList();
@@ -155,16 +160,6 @@ public class ExplanationActivity extends AppCompatActivity {
         names.put("altro", "Unknown");
 
 
-
-        /*
-        // Access values from the dictionary
-        String appleDefinition = definitions.get("Apple");
-        String carDefinition = definitions.get("Car");
-        String javaDefinition = definitions.get("Java");
-
-        */
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.explanation);
 
@@ -187,12 +182,14 @@ public class ExplanationActivity extends AppCompatActivity {
         keeprec = findViewById(R.id.keeprec);
         err = findViewById(R.id.er);
 
+        check_taggle_btn = findViewById(R.id.check_toggle_btn);
+
         keeprec.setVisibility(View.INVISIBLE);
         err.setVisibility(View.INVISIBLE);
 
         title.setText("Know your statue");
         text_intro.setText("Just follow the instructions:\n\n" +
-                "1) Choose a statue\n\n" +
+                "1) Choose a statue and a modality (fast or precise)\n\n" +
                 "2) Record a video (with \"start\"), it’s important to clearly record the face\n\n" +
                 "3) The information about the statue will appear\n\n" +
                 "4) Afterwards you can generate the DeepFake if you want! (based on the prerecorded video)");
@@ -225,6 +222,20 @@ public class ExplanationActivity extends AppCompatActivity {
         //set textview
         //textView.setText("Let's start! choose the subject and record with the button below");
         textView.setVisibility(View.VISIBLE);
+
+
+        check_taggle_btn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    check_taggle_btn.setText("PRECISE");
+                    check_taggle_btn.setTextColor(Color.parseColor("#ffffff"));
+                } else {
+                    check_taggle_btn.setText("FAST");
+                    check_taggle_btn.setTextColor(Color.parseColor("#000000"));
+                }
+            }
+        });
 
         //runnable only to end (statues)
         r_end = new Runnable() {
@@ -284,6 +295,7 @@ public class ExplanationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 start.setVisibility(View.INVISIBLE);
+                check_taggle_btn.setVisibility(View.INVISIBLE);
                 back.setVisibility(View.INVISIBLE);
                 mTextureView.setVisibility(View.VISIBLE);
 
@@ -813,6 +825,12 @@ public class ExplanationActivity extends AppCompatActivity {
             //String serverUrl = "http://172.20.10.2:3535/video_give_statue"; //"http://172.20.10.5:3535/"; //http://127.0.0.1:8080/
             String serverUrl = server + "video_give_statue";
 
+            if (check_taggle_btn.isChecked()) {
+                tipo = 1;
+            } else {
+                tipo = 0;
+            }
+
             Log.i(TAG, "start communication");
 
             response = new StringBuilder();
@@ -842,6 +860,7 @@ public class ExplanationActivity extends AppCompatActivity {
                 // Construct the JSON request body with the Base64 video data
                 JSONObject json_data = new JSONObject();
                 json_data.put("index", 0);
+                json_data.put("type", tipo);
                 json_data.put("video", base64Video);
 
 
@@ -949,6 +968,7 @@ public class ExplanationActivity extends AppCompatActivity {
                 // Construct the JSON request body with the Base64 video data
                 JSONObject json_data = new JSONObject();
                 json_data.put("index", 0);
+                json_data.put("type", tipo);
                 json_data.put("video", base64Video);
 
 
@@ -1125,6 +1145,7 @@ public class ExplanationActivity extends AppCompatActivity {
                             mTextureView.setVisibility(View.INVISIBLE);
                             progressbar.setVisibility(View.INVISIBLE);
                             start.setVisibility(View.INVISIBLE);
+                            check_taggle_btn.setVisibility(View.INVISIBLE);
                             back.setVisibility(View.INVISIBLE);
                             String path = old_filename;
 

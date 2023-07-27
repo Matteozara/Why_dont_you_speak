@@ -7,7 +7,6 @@ from os import listdir, path
 import json, subprocess, random, string
 from tqdm import tqdm
 from glob import glob
-from mtcnn_cv2 import MTCNN
 
 import torch
 #from models import Wav2Lip
@@ -39,9 +38,8 @@ def melspectrogram(wav):
 
 
 #datagen
-def datagen(frames, mels):
+def datagen(frames, mels, yolo):
     img_batch, mel_batch, frame_batch, coords_batch = [], [], [], []
-    detector = MTCNN()
     using_video_format = True
     face_det_results = []
     cropped = []
@@ -50,22 +48,29 @@ def datagen(frames, mels):
 		#face_det_results = face_detect(frames) # BGR2RGB for CNN face detection
         for i in range(0, len(frames)):
             image = cv2.cvtColor(frames[i], cv2.COLOR_BGR2RGB)
-            result = detector.detect_faces(image)
-            if result != []:
-                face_det_results.append((result[0]['box'][1], result[0]['box'][1] + result[0]['box'][3], result[0]['box'][0], result[0]['box'][0] + result[0]['box'][2]))
-                a = frames[i][result[0]['box'][1]:result[0]['box'][1]+result[0]['box'][3], result[0]['box'][0]:result[0]['box'][0]+result[0]['box'][2]]
-                cropped.append(a)
-				#cropped.append(image[x:x+w, y:y+h])
-            if result == [] and len(face_det_results) > 0:
-                face_det_results.append(face_det_results[-1])
-                cropped.append(cropped[-1])
+            try:
+                result, _, _, _ = yolo.detect(image)
+            
+                if result != []:
+                    face_det_results.append((round(result[0][1]), round(result[0][1] + result[0][3]), round(result[0][0]), round(result[0][0] + result[0][2])))
+                    a = frames[i][round(result[0][1]):round(result[0][1]+result[0][3]), round(result[0][0]):round(result[0][0]+result[0][2])]
+                    cropped.append(a)
+            except:
+                if len(face_det_results) > 0:
+                    face_det_results.append(face_det_results[-1])
+                    cropped.append(cropped[-1])
     else:
         #face_det_results = face_detect([frames[0]])
         image = cv2.cvtColor(frames[0], cv2.COLOR_BGR2RGB)
-        result = detector.detect_faces(image)
-        face_det_results.append([result[0]['box'][1], result[0]['box'][1] + result[0]['box'][3], result[0]['box'][0], result[0]['box'][0] + result[0]['box'][2]])
-        a = frames[0][result[0]['box'][1]:result[0]['box'][1]+result[0]['box'][3], result[0]['box'][0]:result[0]['box'][0]+result[0]['box'][2]]
-        cropped.append(a)
+        try:
+            result, _, _, _ = yolo.detect(image)
+            
+            if result != []:
+                face_det_results.append((round(result[0][1]), round(result[0][1] + result[0][3]), round(result[0][0]), round(result[0][0] + result[0][2])))
+                a = frames[i][round(result[0][1]):round(result[0][1]+result[0][3]), round(result[0][0]):round(result[0][0]+result[0][2])]
+                cropped.append(a)
+        except:
+            raise Exception("In the image is not detected any face")
 
     #hoping the faces missed are only a few (adjust dimension)
     if len(frames) > len(face_det_results):
@@ -117,10 +122,10 @@ def datagen(frames, mels):
 
 
 
-def start_generating(model, full_frames, path_wav, iteration):
+def start_generating(model, yolo, full_frames, path_wav, iteration):
     outputs = []
     fps = 30
-    device = "cuda"
+    device = "cpu"
     mel_step_size = 16
     #audio_path = ["audio1.wav", "audio2.wav", "audio3.wav"]
     result_path = 'final_results/final_result{}.mp4'.format(iteration)
@@ -159,7 +164,7 @@ def start_generating(model, full_frames, path_wav, iteration):
     ##########################
 
     #print("start datagen")
-    gen = datagen(full_frames.copy(), mel_chunks) ##returns the generator for lists: img_batch(faces), mel_batch(audio), frame_batch(original frames), coords_batch(coords of faces)
+    gen = datagen(full_frames.copy(), mel_chunks, yolo) ##returns the generator for lists: img_batch(faces), mel_batch(audio), frame_batch(original frames), coords_batch(coords of faces)
     #print("end datagen")
 
     ##np.ceil(a) => return all the elemnt of 'a' list, rounded on top (es 0.1 => 1)

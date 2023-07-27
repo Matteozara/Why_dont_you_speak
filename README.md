@@ -78,7 +78,7 @@ NB: to run the project you need that both server_application and Android_applica
 To run the Server Application, first of all, set up an environment with GPU.
 <br>
 <br>
-After, donwload the weights of the models [link here](https://drive.google.com/drive/folders/1EwbSPdOrXYlIqTS0SufuodawTS7eR-1P?usp=drive_link), and put the EfficientNet weights (both), iside the <i>server_application/EfficientNet</i> folder, instead the GAN weights inside <i>server_application/model</i> folder.
+After, donwload the weights of the models [link here](https://drive.google.com/drive/folders/1EwbSPdOrXYlIqTS0SufuodawTS7eR-1P?usp=drive_link), put the EfficientNet weights (both), iside the <i>server_application/EfficientNet</i> folder, the Yolo8 weights inside the <i>server_application/Yolo8</i> folder, and the GAN weights inside <i>server_application/model</i> folder.
 <br>
 <br>
 Once done, install the required packages:

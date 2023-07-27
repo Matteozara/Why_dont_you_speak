@@ -46,6 +46,7 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -105,6 +106,10 @@ public class VideoAudioActivity extends AppCompatActivity {
 
     public boolean flag = false;
 
+    public ToggleButton check_taggle_btn;
+
+    public int tipo;
+
     public final String server = "http://172.20.10.5:3535/";
 
     public Queue queue_response = new LinkedList();
@@ -136,12 +141,14 @@ public class VideoAudioActivity extends AppCompatActivity {
         back = findViewById(R.id.back);
         save = findViewById(R.id.save);
 
+        check_taggle_btn = findViewById(R.id.check_toggle_btn);
+
         keeprec.setVisibility(View.INVISIBLE);
         err.setVisibility(View.INVISIBLE);
 
         title.setText("Now the video");
         text_intro.setText("Now that You recoded your audio, do the video part:\n\n" +
-                "1) choose a subject (a statue or a person)\n\n" +
+                "1) choose a subject (a statue or a person) and a modality (fast or precise)\n\n" +
                 "2) record an almost static video (with \"start\"), it's important that record clearly the face \n\n" +
                 "3) after some seconds, the video will end and the deepfake will arrive ");
         text_intro.setVisibility(View.VISIBLE);
@@ -158,6 +165,20 @@ public class VideoAudioActivity extends AppCompatActivity {
         //set textview
         //textView.setText("Let's start! choose the subject and record with the button below");
         textView.setVisibility(View.VISIBLE);
+
+
+        check_taggle_btn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    check_taggle_btn.setText("PRECISE");
+                    check_taggle_btn.setTextColor(Color.parseColor("#ffffff"));
+                } else {
+                    check_taggle_btn.setText("FAST");
+                    check_taggle_btn.setTextColor(Color.parseColor("#000000"));
+                }
+            }
+        });
 
         //runnable only to end (statues)
         r_end = new Runnable() {
@@ -215,6 +236,7 @@ public class VideoAudioActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 start.setVisibility(View.INVISIBLE);
+                check_taggle_btn.setVisibility(View.INVISIBLE);
                 back.setVisibility(View.INVISIBLE);
                 mTextureView.setVisibility(View.VISIBLE);
 
@@ -424,7 +446,7 @@ public class VideoAudioActivity extends AppCompatActivity {
         mChronometer.setVisibility(View.VISIBLE);
         mChronometer.start();
 
-        new Handler().postDelayed(r_end,13000);
+        new Handler().postDelayed(r_end,6000);
         //new Handler().postDelayed(r_show,90000);
     }
 
@@ -730,6 +752,12 @@ public class VideoAudioActivity extends AppCompatActivity {
             rectangle.setVisibility(View.INVISIBLE);
             String path = old_filename;
 
+            if (check_taggle_btn.isChecked()) {
+                tipo = 1;
+            } else {
+                tipo = 0;
+            }
+
             String serverUrl = server + "process_custom";
 
             //Log.i(TAG, "file passed (original video): " + path);
@@ -763,6 +791,7 @@ public class VideoAudioActivity extends AppCompatActivity {
                 // Construct the JSON request body with the Base64 video data
                 JSONObject json_data = new JSONObject();
                 json_data.put("index", 0);
+                json_data.put("type", tipo);
                 json_data.put("video", base64Video);
 
 
@@ -815,6 +844,7 @@ public class VideoAudioActivity extends AppCompatActivity {
                             mTextureView.setVisibility(View.INVISIBLE);
                             progressbar.setVisibility(View.INVISIBLE);
                             start.setVisibility(View.INVISIBLE);
+                            check_taggle_btn.setVisibility(View.INVISIBLE);
                             back.setVisibility(View.INVISIBLE);
 
                             Log.i(TAG, "start communication");
@@ -946,6 +976,7 @@ public class VideoAudioActivity extends AppCompatActivity {
                     mTextureView.setVisibility(View.INVISIBLE);
                     progressbar.setVisibility(View.INVISIBLE);
                     start.setVisibility(View.INVISIBLE);
+                    check_taggle_btn.setVisibility(View.INVISIBLE);
                     back.setVisibility(View.INVISIBLE);
 
                     Log.i(TAG, "start communication");

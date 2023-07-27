@@ -1,1 +1,0 @@
-Inside this folder will be saved the output of the GAN without audio (so the deep fake without audio)

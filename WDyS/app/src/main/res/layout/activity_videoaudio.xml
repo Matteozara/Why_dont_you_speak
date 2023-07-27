@@ -181,4 +181,19 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="30dp"/>
 
+    <ToggleButton
+        android:id="@+id/check_toggle_btn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:textSize="12pt"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#000000"
+        android:background="@drawable/save_button"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="30dp"
+        android:textOff="FAST"
+        android:textOn="PRECISE"/>
+
 </RelativeLayout>
