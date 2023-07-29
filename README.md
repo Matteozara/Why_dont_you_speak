@@ -5,7 +5,7 @@ museum visitors through Deepfake of statues".
 The paper presents a new application to change the way of experience the museums.
 To understand better the functionalities, here (<a href="#project-videos">Project Videos</a>) there are three video, each one explaining a different feature of the app.
 <br>
-To have a full overview, you can donwload the video [video_demo.mp4](https://drive.google.com/file/d/1eKe5PnxXyIel1fs0ag8DvSHfpzSxyI3T/view?usp=sharing).
+<!-- To have a full overview, you can donwload the video [video_demo.mp4](https://drive.google.com/file/d/1eKe5PnxXyIel1fs0ag8DvSHfpzSxyI3T/view?usp=sharing). -->
 <br>
 If you just want to see the final deep fakes you can go to <a href="#results">Results</a>, or, to have more examples, search inside the <i>"Deep fake Results" </i> folder.
 <br>
