@@ -63,10 +63,11 @@ https://github.com/Matteozara/Why_dont_you_speak/assets/74371691/b779d4db-b512-4
 <br>
 
 ## Getting Started
+<!--https://github.com/Matteozara/Why_dont_you_speak.git-->
 
 First of all clone the repo:
 ```sh
-  git clone https://github.com/Matteozara/Why_dont_you_speak.git
+  git clone "url repo"
   cd Why_dont_you_speak
   ```
 NB: to run the project you need that both server_application and Android_application are connected to the same network.
@@ -136,12 +137,12 @@ This repository can only be used for personal/research/non-commercial purposes. 
 <br>
 
 ## Contacts
-
-Matteo Zaramella - zaramella.2025806@studenti.uniroma1.it or matteozara98@gmail.com
+TBA
+<!-- Matteo Zaramella - zaramella.2025806@studenti.uniroma1.it or matteozara98@gmail.com
 
 Irene Amerini - amerini@diag.uniroma1.it
 
-Paolo Russo - prusso@diag.uniroma1.it
+Paolo Russo - prusso@diag.uniroma1.it-->
   
 <br>
 <br>
