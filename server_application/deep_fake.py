@@ -9,7 +9,6 @@ from tqdm import tqdm
 from glob import glob
 
 import torch
-#from models import Wav2Lip
 import platform
 
 import librosa
@@ -79,7 +78,6 @@ def datagen(frames, mels, yolo):
             cropped.append(cropped[-1])
 
 	##process and adapted frames with audio file
-    print('ok')
     for i, m in enumerate(mels):
         idx = i%len(frames) #idx = 0 if args.static else i%len(frames)
         frame_to_save = frames[idx].copy() ##original frame
@@ -122,10 +120,11 @@ def datagen(frames, mels, yolo):
 
 
 
-def start_generating(model, yolo, full_frames, path_wav, iteration):
+def start_generating(model, yolo, full_frames, path_wav, iteration,device):
     outputs = []
     fps = 30
-    device = "cpu"
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model = model.to(device)
     mel_step_size = 16
     #audio_path = ["audio1.wav", "audio2.wav", "audio3.wav"]
     result_path = 'final_results/final_result{}.mp4'.format(iteration)

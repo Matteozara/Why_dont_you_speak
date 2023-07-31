@@ -15,10 +15,10 @@ app = Flask(__name__)
 
 #kind of Main
 #load model
-model = torch.jit.load("model/gan_cpu_PC_jit.pt")
+model = torch.jit.load("model/gan_gpu_jit.pt") #or "gan_cpu_PC_jit.pt" for cpu
 model.eval()
 #set device
-device = "cpu"
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 #face detector
 yolo = YOLOv8_face("Yolo8/yolov8n-face.onnx", conf_thres=0.45, iou_thres=0.5)
 

@@ -11,6 +11,10 @@ class YOLOv8_face:
         self.num_classes = len(self.class_names)
         # Initialize model
         self.net = cv2.dnn.readNet(path)
+        self.net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
+        self.net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
+        # read this: https://alimustoofaa.medium.com/how-to-load-model-yolov8-onnx-cv2-dnn-3e176cde16e6
+
         self.input_height = 640
         self.input_width = 640
         self.reg_max = 16

@@ -137,12 +137,11 @@ This repository can only be used for personal/research/non-commercial purposes. 
 <br>
 
 ## Contacts
-TBA
-<!-- Matteo Zaramella - zaramella.2025806@studenti.uniroma1.it or matteozara98@gmail.com
+Matteo Zaramella - zaramella.2025806@studenti.uniroma1.it or matteozara98@gmail.com
 
 Irene Amerini - amerini@diag.uniroma1.it
 
-Paolo Russo - prusso@diag.uniroma1.it-->
+Paolo Russo - prusso@diag.uniroma1.it
   
 <br>
 <br>
