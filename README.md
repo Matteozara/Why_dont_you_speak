@@ -1,6 +1,9 @@
 # Why don’t you speak? (WDyS)
-This repo contains the video demo for the paper "Why don’t you speak?: a smartphone application to engage
-museum visitors through Deepfake of statues".
+<b>Winner of the best Paper award at SUMAC workshop, ACMMM 2023, Ottawa, CA</b>
+<br>
+This repo contains the video demo and the code for the paper "Why don’t you speak?: a smartphone application to engage
+museum visitors through Deepfake of statues" (<a href="https://dl.acm.org/doi/10.1145/3607542.3617359">paper</a>).
+<br>
 <br>
 The paper presents a new application to change the way of experience the museums.
 To understand better the functionalities, here (<a href="#project-videos">Project Videos</a>) there are three video, each one explaining a different feature of the app.
